@@ -5,6 +5,18 @@
   <title>React</title>
   <script src="JSXTransformer.js"></script>
   <script src="react.min.js"></script>
+  <style>
+    table {
+      border-collapse:collapse;
+    }
+    td {
+      border:1px solid gray;
+      padding:5px;
+    }
+    thead {
+      background-color: #eee;
+    }
+  </style>
 </head>
 <body>
   <script type="text/jsx">
@@ -13,6 +25,7 @@
     * @jsx React.DOM
     */
     
+    // 数据定义
     var data = [
       {
         name:"大众",
@@ -28,6 +41,7 @@
       }
     ];
     
+    // 汽车组件定义
     var Car = React.createClass({
       render: function () {
         return (
@@ -39,16 +53,33 @@
       }
     });
     
+    // 汽车列表表头
+    var CarListTitle = React.createClass({
+      render: function () {
+        return (
+          <thead>
+            <tr>
+              <td>名称</td>
+              <td>国别</td>
+            </tr>
+          </thead>
+        )
+      }
+    });
+
+    // 汽车列表组件定义
     var CarList = React.createClass({
     
       render: function () {
-    
+        // cars返回是一个<Car>组件的集合
         var cars = this.props.data.map(function (car) {
           return <Car name={car.name} nation={car.nation} />
         });
-      
+
+        // 这里直接输出cars集合
         return (
           <table>
+            <CarListTitle />
             {cars}
           </table>
         )

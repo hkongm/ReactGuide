@@ -55,9 +55,11 @@
           isread: false
         }
       },
+      // 按钮点击事件
       onreadit : function () {
         this.setState({
-          isread : true
+          //isread : true
+          isread : !this.state.isread
         });
       },
       render: function () {
@@ -70,7 +72,7 @@
       }
     });
     
-    // 文章组件
+    // 文章组件，组合上述Title+Content+Footer+IsRead4个组件
     var Article = React.createClass({
       render: function () {
         return (
@@ -82,7 +84,7 @@
               //subtitle = "小标题" 
             />
             <ArticleContent
-              content = "文章内容啊！回车"
+              content = "文章内容啊！"
             />
             <ArticleFooter
               author = "作者"
