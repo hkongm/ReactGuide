@@ -12,4 +12,6 @@ React基础课程，包括：
 
 附带DEMO
 
-同时还有分享用PDF
+课程提纲见[这里](https://github.com/hkongm/ReactGuide/blob/master/outline.md)
+
+课程[PDF](https://github.com/hkongm/ReactGuide/blob/master/%5B技术分享%5DReact入门和实战.pdf)
