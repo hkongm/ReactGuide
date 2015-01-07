@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React</title>
+  <script src="JSXTransformer.js"></script>
+  <script src="react.min.js"></script>
+</head>
+<body>
+  <script type="text/jsx">
+
+    /**
+    * @jsx React.DOM
+    */
+    var EventDemo = React.createClass({
+      onclickme: function() {
+        alert(this.props.message)
+      },
+      render: function () {
+        return (
+          <div>
+            点下面的按钮，试试事件绑定效果如何？
+            <button onClick={this.onclickme}>点我啊</button>
+          </div>
+        );
+      }
+    });
+    React.render(
+      <EventDemo message = "点啊！！" />,
+      document.body
+    );
+  </script>
+</body>
+</html>

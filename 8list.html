@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React</title>
+  <script src="JSXTransformer.js"></script>
+  <script src="react.min.js"></script>
+</head>
+<body>
+  <script type="text/jsx">
+
+    /**
+    * @jsx React.DOM
+    */
+    
+    var data = [
+      {
+        name:"大众",
+        nation:"德国"
+      },
+      {
+        name:"丰田",
+        nation:"日本"
+      },
+      {
+        name:"奇瑞",
+        nation:"中国"
+      }
+    ];
+    
+    var Car = React.createClass({
+      render: function () {
+        return (
+          <tr>
+            <td>{this.props.name}</td>
+            <td>{this.props.nation}</td>
+          </tr>
+        )
+      }
+    });
+    
+    var CarList = React.createClass({
+    
+      render: function () {
+    
+        var cars = this.props.data.map(function (car) {
+          return <Car name={car.name} nation={car.nation} />
+        });
+      
+        return (
+          <table>
+            {cars}
+          </table>
+        )
+      }
+    });
+
+    React.render(
+      <CarList data = {data}/>,
+      document.body
+    )
+  </script>
+</body>
+</html>

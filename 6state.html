@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React</title>
+  <script src="JSXTransformer.js"></script>
+  <script src="react.min.js"></script>
+</head>
+<body>
+  <script type="text/jsx">
+
+    /**
+    * @jsx React.DOM
+    */
+    
+    var StateDemo = React.createClass({
+      // 这个方法用来初始化状态
+      getInitialState: function() {
+        return {
+          clicks: 0
+        }
+      },
+      
+      // 这里是事件
+      onBtnClick: function() {
+        this.setState({
+          clicks: this.state.clicks + 1
+        })
+      },
+      
+      render: function() {
+        return (
+          <div>
+            <div>点击数：<strong>{this.state.clicks}</strong></div>
+            <button onClick={this.onBtnClick}>点我增加点击数</button>
+          </div>
+        )
+      }
+    });
+
+    React.render(
+      <StateDemo />,
+      document.body
+    );
+  </script>
+</body>
+</html>

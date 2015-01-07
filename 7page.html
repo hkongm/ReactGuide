@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React</title>
+  <script src="JSXTransformer.js"></script>
+  <script src="react.min.js"></script>
+</head>
+<body>
+  <script type="text/jsx">
+
+    /**
+    * @jsx React.DOM
+    */
+    
+    // 文章组件-标题
+    var ArticleTitle = React.createClass({
+      render: function () {
+        return (
+          <hgroup>
+            <h1>{this.props.title}</h1>
+            <h2>{this.props.subtitle}</h2>
+          </hgroup>
+        )
+      }
+    });
+    
+    // 文章组件-内容
+    var ArticleContent = React.createClass({
+      render: function () {
+        return (
+          <main class="content">{this.props.content}</main>
+        )
+      }
+    });
+    
+    // 文章组件-落款
+    var ArticleFooter = React.createClass({
+      render: function () {
+        return (
+          <footer>
+            <div class="author">{this.props.author}</div>
+            <div class="datetime">{this.props.publishtime}</div>
+          </footer>
+        )
+      }
+    });
+    
+    // 文章组件-已读按钮
+    var ArticleIsRead = React.createClass({
+    
+      // 这个方法用来初始化状态
+      getInitialState: function() {
+        return {
+          isread: false
+        }
+      },
+      onreadit : function () {
+        this.setState({
+          isread : true
+        });
+      },
+      render: function () {
+        var text = this.state.isread ? '已读' : '未读';
+        return (
+          <button onClick={this.onreadit}>
+            {text}
+          </button>
+        )
+      }
+    });
+    
+    // 文章组件
+    var Article = React.createClass({
+      render: function () {
+        return (
+          <div>
+            <ArticleTitle 
+              title = {this.props.title}
+              subtitle = {this.props.subtitle}
+              //title = "大标题"
+              //subtitle = "小标题" 
+            />
+            <ArticleContent
+              content = "文章内容啊！回车"
+            />
+            <ArticleFooter
+              author = "作者"
+              publishtime = "发布时间"
+            />
+            <ArticleIsRead />
+          </div>
+        )
+      }
+    });
+    
+    React.render(
+      <Article title="大大标题" subtitle="大小标题"/>,
+      document.body
+    );
+  </script>
+</body>
+</html>

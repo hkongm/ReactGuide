@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React</title>
+  <script src="JSXTransformer.js"></script>
+  <script src="react.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1>这里是结果</h1>
+    <p id="result"></p>
+  </div>
+  <script type="text/jsx">
+
+    /**
+    * @jsx React.DOM
+    */
+    var str = '这里是占位用的文本哦这里是占位用的文本哦这里是占位用的文本哦这里是占位用的文本哦';
+    
+    React.render(
+      <div>
+        {str}
+        <br/>
+        {3+5}
+      </div>,
+      document.getElementById('result')
+    );
+    
+  </script>
+</body>
+</html>

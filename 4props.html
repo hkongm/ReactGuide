@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React</title>
+  <script src="JSXTransformer.js"></script>
+  <script src="react.min.js"></script>
+</head>
+<body>
+  <script type="text/jsx">
+
+    /**
+    * @jsx React.DOM
+    */
+    
+    var MessageComponent = React.createClass({
+      render: function() {
+        return (
+          <div>{this.props.message}</div>
+        );
+      }
+    });
+
+    React.render(
+      <MessageComponent message="Hello autohome!" />,
+      document.body
+    );
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React</title>
+  <script src="JSXTransformer.js"></script>
+  <script src="react.min.js"></script>
+</head>
+<body>
+  <div>
+    <h1>这里是结果</h1>
+    <p id="result"></p>
+  </div>
+  <script type="text/jsx">
+
+    /**
+    * @jsx React.DOM
+    */
+
+    React.render(
+      <em>Hello World!</em>,
+      document.getElementById('result')
+    );
+    
+  </script>
+</body>
+</html>
