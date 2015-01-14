@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React 9_Children</title>
+  <script src="JSXTransformer.js"></script>
+  <script src="react.min.js"></script>
+</head>
+<body>
+  <script type="text/jsx">
+
+    /**
+    * @jsx React.DOM
+    */
+    var ListComponent = React.createClass({
+      render: function() {
+        // 注意我们是如何使用React.Children.map方法的
+        var children = React.Children.map(
+          this.props.children,
+          function(child) {
+            return <li>{child}</li>;
+          }
+        );
+        return <ul>{children}</ul>;
+      }
+    });
+
+    var middleChildren = [
+      <strong key="2">Child 2</strong>,
+      <a href="#" key="3">Child 3</a>
+    ];
+
+    React.render(
+      <ListComponent>
+        <span>Child 1</span>
+        {middleChildren}
+        <em>Child 4</em>
+      </ListComponent>
+    , document.body);
+  </script>
+</body>
+</html>
